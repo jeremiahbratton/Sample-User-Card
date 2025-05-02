@@ -143,6 +143,12 @@ body::before {
   border-radius: 0.375rem;
 }
 
+.edit-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .edit-input {
   width: 100%;
   padding: 0.5rem;

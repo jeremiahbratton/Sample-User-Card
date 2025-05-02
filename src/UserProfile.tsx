@@ -53,7 +53,7 @@ const useUserData = (userId: number) => {
         email: user.email,
         avatar: user.picture.large
       };
-      
+
       // Store in localStorage
       localStorage.setItem(`user_${userId}`, JSON.stringify(userData));
       return userData;
@@ -132,20 +132,27 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId, onError }) => {
               <p className="identity-theft-message">
                 Does this person look kinda like you? Put in your name and email to jealously preserve their likeness as your own.
               </p>
-              <input
-                type="text"
-                value={editedName}
-                onChange={(e) => setEditedName(e.target.value)}
-                className="edit-input"
-                placeholder="Enter name"
-              />
-              <input
-                type="email"
-                value={editedEmail}
-                onChange={(e) => setEditedEmail(e.target.value)}
-                className="edit-input"
-                placeholder="Enter email"
-              />
+              <div className="edit-input-container">
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={editedName}
+                  onChange={(e) => setEditedName(e.target.value)}
+                  className="edit-input"
+                  placeholder="Enter name"
+                /></div>
+              <div className="edit-input-container">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={editedEmail}
+                  onChange={(e) => setEditedEmail(e.target.value)}
+                  className="edit-input"
+                  placeholder="Enter email"
+                />
+              </div>
             </>
           ) : (
             <>
@@ -155,7 +162,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId, onError }) => {
           )}
         </div>
       </div>
-      
+
       <div className="button-group">
         {isEditing ? (
           <>
@@ -184,7 +191,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId, onError }) => {
           </button>
         )}
       </div>
-    </section>
+    </section >
   );
 };
 
